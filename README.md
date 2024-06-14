@@ -1,26 +1,24 @@
 # Запуск проекта
 
-1. Скопируйте файл конфигурации:
-
-2. Поднимите контейнеры в docker:
+1. Поднимите контейнеры в docker:
 
 ```
 docker-compose up -d
 ```
 
-3. Войти в контейнер calculator-app
+2. Войдите в контейнер calculator-app
 
 ```
 docker-compose exec calculator-app bash 
 ```
 
-4. Установить зависимости
+3. Установить зависимости
 
 ```
 composer install
 ```
 
-5. Запуск тестов
+4. Запуск тестов
 ```
 ./bin/phpunit
 ```
