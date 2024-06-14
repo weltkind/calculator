@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  calculator-app:
+    container_name: calculator-app
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    volumes:
+      - .:/var/www
+    environment:
+      - APP_ENV=dev
+
+  calculator-nginx:
+    image: nginx:latest
+    container_name: calculator-nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - .:/var/www
+    depends_on:
+      - calculator-app
